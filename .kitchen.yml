@@ -1,0 +1,22 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-6.4
+
+suites:
+  - name: chef_gem
+    run_list:
+      - recipe[minitest-handler]
+      - recipe[gh2558_test::chef_gem]
+    attributes:
+
+  - name: package
+    run_list:
+      - recipe[minitest-handler]
+      - recipe[gh2558_test::package]
+    attributes:
